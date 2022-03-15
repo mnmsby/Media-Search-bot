@@ -304,7 +304,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 [
                     InlineKeyboardButton('🌐 Youtube 🌐', url='http://youtube.com/c/pencemodesigns')
                 ]
-            await query.message.edit(text="<b>Something About Me</b> ✌️\n◉ Support : <a href='https://t.me/free_graphics_download'>Free graphics</a>\n◉ MyDev : <a href='https://t.me/mnmsby'>α̅η̲ɗɾo͚ȋɗ കുഞ്ഞപ്പൻ</a>\n◉ Update Channel : <a href='https://t.me/pencemodesigns'>Pencemo Designs</a>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(text="my name is autofilter bot u can call me media search bot \npls add me to your group", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 
 
