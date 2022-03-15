@@ -27,14 +27,14 @@ async def start(bot, cmd):
                 ident, file_id = cmd.text.split("_-_-_-_")
                 await bot.send_message(
                     chat_id=cmd.from_user.id,
-                    text="**Please Join My Updates Channel to use this Bot!**",
+                    text="**Please Join My Channel to use Me! 😝😝**",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+                                InlineKeyboardButton("🔥 Join Here 🔥", url=invite_link.invite_link)
                             ],
                             [
-                                InlineKeyboardButton(" 🔄 Try Again", callback_data=f"checksub#{file_id}")
+                                InlineKeyboardButton(" ⏳ Try Again ⏳", callback_data=f"checksub#{file_id}")
                             ]
                         ]
                     ),
@@ -66,8 +66,7 @@ async def start(bot, cmd):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('Search again', switch_inline_query_current_chat=''),
-                        InlineKeyboardButton('More Bots', url='https://t.me/subin_works/122')
+                        InlineKeyboardButton('Share Me 🔊', url='http://t.me/share/url?url=https://t.me/Unicodepro_bot')
                     ]
                     ]
                 await bot.send_cached_media(
@@ -82,11 +81,11 @@ async def start(bot, cmd):
         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
         await bot.send_message(
             chat_id=cmd.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!**",
+            text="**Please Join My Channel to use Me! 😝😝**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+                        InlineKeyboardButton("🔥 Join Here 🔥", url=invite_link.invite_link)
                     ]
                 ]
             )
@@ -99,11 +98,11 @@ async def start(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Search Here", switch_inline_query_current_chat=''),
-                        InlineKeyboardButton("Other Bots", url="https://t.me/subin_works/122")
+                        InlineKeyboardButton("💥 Support", url="https://t.me/subin_works/122"),
+                        InlineKeyboardButton("About", callback_data="about")
                     ],
                     [
-                        InlineKeyboardButton("About", callback_data="about")
+                        InlineKeyboardButton("Search Here 🔎", switch_inline_query_current_chat='')
                     ]
                 ]
             )
@@ -192,8 +191,10 @@ async def delete(bot, message):
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Update Channel', url='https://t.me/subin_works'),
-            InlineKeyboardButton('Source Code', url='https://github.com/subinps/Media-Search-bot')
+            InlineKeyboardButton('🔖 Support us 🔖', url='https://t.me/pencemodesign')
+        ],
+        [
+            InlineKeyboardButton('🌐 Youtube 🌐', url='http://youtube.com/c/pencemodesigns')
         ]
         ]
-    await message.reply(text="Language : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='https://github.com/subinps/Media-Search-bot'>Click here</a>\nUpdate Channel : <a href='https://t.me/subin_works'>XTZ Bots</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(text="<b>Something About Me</b> ✌️\n◉ Support : <a href='https://t.me/free_graphics_download'>Free graphics</a>\n◉ Files : <code>Graphics related only 💻</code>\n◉ MyDev : <a href='https://t.me/mnmsby'>α̅η̲ɗɾo͚ȋɗ കുഞ്ഞപ്പൻ</a>\n◉ Source Code : <a href='https://t.me/AdhavaaBiriyaniKittiyalo'>Click here</a>\n◉ Update Channel : <a href='https://t.me/pencemodesigns'>Pencemo Designs</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
