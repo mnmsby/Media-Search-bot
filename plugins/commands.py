@@ -204,9 +204,9 @@ async def bot_info(bot, message):
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton("SEARCH HERE 🔍", switch_inline_query_current_chat='')          
+            InlineKeyboardButton("🔎 SEARCH HERE 🔍", switch_inline_query_current_chat='')          
         ],[
-            InlineKeyboardButton('JOIN HERE ⚡️', url='https://t.me/pencemodesigns')
+            InlineKeyboardButton("Help ⚙️", callback_data="help")
         ]
         ]
     await message.reply(text="""<b>For searching files please click button below 👇, or send file name or ID here</b>""", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
