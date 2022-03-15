@@ -98,7 +98,7 @@ async def start(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("⚙️ Help", callback_data="help")
+                        InlineKeyboardButton("⚙️ Help", callback_data="help"),
                         InlineKeyboardButton("About 📝", callback_data="about")
                     ],
                     [
