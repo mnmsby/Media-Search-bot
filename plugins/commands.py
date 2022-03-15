@@ -66,7 +66,7 @@ async def start(bot, cmd):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('Share Me 🔊', url='http://t.me/share/url?url=https://t.me/Unicodepro_bot')
+                        InlineKeyboardButton('⚡️ Share Me ⚡️', url='http://t.me/share/url?url=http://t.me/FreeGfx_bot')
                     ]
                     ]
                 await bot.send_cached_media(
@@ -188,7 +188,7 @@ async def delete(bot, message):
         await msg.edit('File is successfully deleted from database')
     else:
         await msg.edit('File not found in database')
-@Client.on_message(filters.command('about'))
+@Client.on_message(filters.command('help'))
 async def bot_info(bot, message):
     buttons = [
         [
@@ -198,7 +198,7 @@ async def bot_info(bot, message):
             InlineKeyboardButton('🌐 Youtube 🌐', url='http://youtube.com/c/pencemodesigns')
         ]
         ]
-    await message.reply(text="**Something About Me** ✌️\n◉ Support : <a href='https://t.me/free_graphics_download'>Free graphics</a>\n◉ Files : <code>Graphics related only 💻</code>\n◉ MyDev : <a href='https://t.me/mnmsby'>α̅η̲ɗɾo͚ȋɗ കുഞ്ഞപ്പൻ</a>\n◉ Source Code : <a href='https://t.me/AdhavaaBiriyaniKittiyalo'>Click here</a>\n◉ Update Channel : <a href='https://t.me/pencemodesigns'>Pencemo Designs</a>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(text="<b>⭕️ How to search here 🔍</b>\n\n<b>🔘 With tag</b>\nEx (banner, poster, template etc... )\n\n<b>🔘 With exact file name</b>\nOnly files from freepik, Envato elements, Vecteezy\n\n<b>🔘 With file ID</b>\nWithout any tag\n\n⭕️ <b>Available Commands :</b>\n\n/start : Checking bot online \n//help : For more help\n/search : search files\n\n©️ @pencemodesigns", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 @Client.on_message(filters.command('search'))
 async def bot_info(bot, message):
