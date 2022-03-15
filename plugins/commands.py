@@ -188,17 +188,6 @@ async def delete(bot, message):
         await msg.edit('File is successfully deleted from database')
     else:
         await msg.edit('File not found in database')
-@Client.on_message(filters.command('help'))
-async def bot_info(bot, message):
-    buttons = [
-        [
-            InlineKeyboardButton('🔖 Support us 🔖', url='https://t.me/pencemodesign')
-        ],
-        [
-            InlineKeyboardButton('🌐 Youtube 🌐', url='http://youtube.com/c/pencemodesigns')
-        ]
-        ]
-    await message.reply(text="<b>⭕️ How to search here 🔍</b>\n\n<b>🔘 With tag</b>\nEx (banner, poster, template etc... )\n\n<b>🔘 With exact file name</b>\nOnly files from freepik, Envato elements, Vecteezy\n\n<b>🔘 With file ID</b>\nWithout any tag\n\n⭕️ <b>Available Commands :</b>\n\n/start : Checking bot online \n//help : For more help\n/search : search files\n\n©️ @pencemodesigns", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 @Client.on_message(filters.command('search'))
 async def bot_info(bot, message):
