@@ -345,6 +345,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     [
                         InlineKeyboardButton('Share Me 🔊', url='http://t.me/share/url?url=https://t.me/Unicodepro_bot')
                     ]
+                    ]
                 
                 await query.answer()
                 await client.send_cached_media(
