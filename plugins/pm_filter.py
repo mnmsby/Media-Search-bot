@@ -295,7 +295,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ]
                 ]
             await query.message.edit(text="<b>⭕️ How to search here 🔍</b>\n\n<b>🔘 With tag</b>\nEx (banner, poster, template etc... )\n\n<b>🔘 With exact file name</b>\nOnly files from freepik, Envato elements, Vecteezy\n\n<b>🔘 With file ID</b>\nWithout any tag\n\n⭕️ <b>Available Commands :</b>\n\n/start : Checking bot online \n/about : more about me\n/search : search files\n\n©️ @pencemodesigns", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-        elif query.data.startswith("subinps"):
+        elif query.data == "about":
+            buttons = [
+                [
+                    InlineKeyboardButton('🔖 Support us 🔖', url='https://t.me/pencemodesign')
+                ],
+                [
+                    InlineKeyboardButton('🌐 Youtube 🌐', url='http://youtube.com/c/pencemodesigns')
+                ]
+                ]
+            await query.message.edit(text="<b>⭕️ How to search here 🔍</b>\n\n<b>🔘 With tag</b>\nEx (banner, poster, template etc... )\n\n<b>🔘 With exact file name</b>\nOnly files from freepik, Envato elements, Vecteezy\n\n<b>🔘 With file ID</b>\nWithout any tag\n\n⭕️ <b>Available Commands :</b>\n\n/start : Checking bot online \n/about : more about me\n/search : search files\n\n©️ @pencemodesigns", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            elif query.data.startswith("subinps"):
             ident, file_id = query.data.split("#")
             filedetails = await get_file_details(file_id)
             for files in filedetails:
