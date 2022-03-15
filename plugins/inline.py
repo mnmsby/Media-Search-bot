@@ -90,7 +90,7 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('Share Me 🔊', url='http://t.me/share/url?url=https://t.me/Unicodepro_bot')
+            InlineKeyboardButton('⚡️ Share Me ⚡️', url='http://t.me/share/url?url=http://t.me/FreeGfx_bot')
         ]
         ]
     return InlineKeyboardMarkup(buttons)
