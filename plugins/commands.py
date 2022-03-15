@@ -198,7 +198,7 @@ async def bot_info(bot, message):
             InlineKeyboardButton('🌐 Youtube 🌐', url='http://youtube.com/c/pencemodesigns')
         ]
         ]
-    await message.reply(text="<b>Something About Me</b> ✌️\n◉ Support : <a href='https://t.me/free_graphics_download'>Free graphics</a>\n◉ Files : <code>Graphics related only 💻</code>\n◉ MyDev : <a href='https://t.me/mnmsby'>α̅η̲ɗɾo͚ȋɗ കുഞ്ഞപ്പൻ</a>\n◉ Source Code : <a href='https://t.me/AdhavaaBiriyaniKittiyalo'>Click here</a>\n◉ Update Channel : <a href='https://t.me/pencemodesigns'>Pencemo Designs</a>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(text="**Something About Me** ✌️\n◉ Support : <a href='https://t.me/free_graphics_download'>Free graphics</a>\n◉ Files : <code>Graphics related only 💻</code>\n◉ MyDev : <a href='https://t.me/mnmsby'>α̅η̲ɗɾo͚ȋɗ കുഞ്ഞപ്പൻ</a>\n◉ Source Code : <a href='https://t.me/AdhavaaBiriyaniKittiyalo'>Click here</a>\n◉ Update Channel : <a href='https://t.me/pencemodesigns'>Pencemo Designs</a>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
 @Client.on_message(filters.command('search'))
 async def bot_info(bot, message):
