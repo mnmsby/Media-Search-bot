@@ -59,7 +59,7 @@ async def filter(client, message):
                     [InlineKeyboardButton(text=f"📥 {filename}",callback_data=f"subinps#{file_id}")]
                     )
         else:
-            await message.reply(text="""**നിങ്ങൾ തിരയുന്ന ഫയൽ ഞങ്ങളുടെ database ൽ ഇല്ല, അല്ലെങ്കിൽ നിങ്ങൾ തിരയുന്നു രീതി ശരിയല്ല....\nദയവുചെയ്ത് മറ്റൊരു ഫയല്‍ തിരയുക അല്ലെങ്കില്‍ തിരയുന്ന രീതി മനസിലാക്കുക ⚠️⚠️\n\nThe file you are searching is not in our database, or the method of your search is incorrect....\n\nLearn the method of search...🔍**""")
+            await message.reply(text="""**⚠️ Warning ⚠️ \n\nനിങ്ങൾ തിരയുന്ന ഫയൽ ഞങ്ങളുടെ database ൽ ഇല്ല, അല്ലെങ്കിൽ നിങ്ങൾ തിരയുന്നു രീതി ശരിയല്ല....\nദയവുചെയ്ത് മറ്റൊരു ഫയല്‍ തിരയുക, അല്ലെങ്കില്‍ തിരയുന്ന രീതി മനസിലാക്കുക ⚠️⚠️ \n\nThe file you are searching is not in our database, or the method of your search is incorrect....\n\nLearn the method of search...🔍**""")
             return
 
         if not btn:
@@ -288,23 +288,25 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "help":
             buttons = [
                 [
-                    InlineKeyboardButton('🔖 Support us 🔖', url='https://t.me/pencemodesign')
+                    InlineKeyboardButton("📝 About", callback_data="about"),
+                    InlineKeyboardButton('Support us 🔖', url='https://t.me/pencemodesign')
                 ],
                 [
-                    InlineKeyboardButton('🌐 Youtube 🌐', url='http://youtube.com/c/pencemodesigns')
+                    InlineKeyboardButton("Search Here 🔎", switch_inline_query_current_chat='')
                 ]
                 ]
-            await query.message.edit(text="<b>⭕️ How to search here 🔍</b>\n\n<b>🔘 With tag</b>\nEx (banner, poster, template etc... )\n\n<b>🔘 With exact file name</b>\nOnly files from freepik, Envato elements, Vecteezy\n\n<b>🔘 With file ID</b>\nWithout any tag\n\n⭕️ <b>Available Commands :</b>\n\n/start : Checking bot online \n/about : more about me\n/search : search files\n\n©️ @pencemodesigns", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(text="<b>⭕️ How to search here 🔍</b>\n\n<b>🔘 With tag</b>\nEx (banner, poster, template etc... )\n<b>🔘 With exact file name</b>\nOnly from freepik, Envato, Vecteezy\n<b>🔘 With file ID</b>\nWithout any tag\n\n⭕️ <b>Available Commands :</b>\n\n/start : Checking bot online \n/search : search files\n\n©️ @pencemodesigns", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
         elif query.data == "about":
             buttons = [
                 [
-                    InlineKeyboardButton('🔖 Support us 🔖', url='https://t.me/pencemodesign')
+                    InlineKeyboardButton('🔖 Support us 🔖', url='https://t.me/pencemodesign'),
+                    InlineKeyboardButton("Back 🔙", callback_data="help")
                 ],
                 [
                     InlineKeyboardButton('🌐 Youtube 🌐', url='http://youtube.com/c/pencemodesigns')
                 ]
                 ]
-            await query.message.edit(text="**Something About Me** ✌️\n◉ Support : [Free graphics](https://t.me/free_graphics_download)\n◉ Files : Graphics related only 💻\n◉ MyDev : [α̅η̲ɗɾo͚ȋɗ കുഞ്ഞപ്പൻ](https://t.me/mnmsby)\n◉ Source Code : [Click here](https://t.me/AdhavaaBiriyaniKittiyalo)\n◉ Update Channel : [Pencemo Designs](https://t.me/pencemodesigns)", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(text="**Something About Me** ✌️\n\n◉ Support : [Free graphics](https://t.me/free_graphics_download)\n◉ Files : Graphics related only 💻\n◉ MyDev : [α̅η̲ɗɾo͚ȋɗ കുഞ്ഞപ്പൻ](https://t.me/mnmsby)\n◉ Source Code : [Click here](https://t.me/AdhavaaBiriyaniKittiyalo)\n◉ Update Channel : [Pencemo Designs](https://t.me/pencemodesigns)", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
             
             
         elif query.data.startswith("subinps"):
