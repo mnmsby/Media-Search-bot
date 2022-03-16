@@ -21,7 +21,7 @@ class Database:
     def __init__(
 	self,
 	url=os.environ.get("DATABASE"),
-	database_name="FnURLShortBot"
+	database_name="nysdb"
     ):
         self._client = motor.motor_asyncio.AsyncIOMotorClient(url)
         self.db = self._client[database_name]
