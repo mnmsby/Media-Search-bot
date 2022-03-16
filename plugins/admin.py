@@ -115,45 +115,28 @@ async def send_msg(user_id, message):
         return 500, f"{user_id} : {traceback.format_exc()}\n"
 
 
-@Client.on_message(filters.private & filters.command("broadcast") & filters.user(BOT_OWNER) & filters.reply, group=10)
-async def broadcast(bot, update):
-	broadcast_ids = {}
-	all_users = await db.get_all_users()
-	broadcast_msg = update.reply_to_message
-	while True:
-	    broadcast_id = ''.join([random.choice(string.ascii_letters) for i in range(3)])
-	    if not broadcast_ids.get(broadcast_id):
-	        break
-	out = await update.reply_text(text=f"Broadcast Started! You will be notified with log file when all the users are notified.")
-	start_time = time.time()
-	total_users = await db.total_users_count()
-	done = 0
-	failed = 0
-	success = 0
-	broadcast_ids[broadcast_id] = dict(total = total_users, current = done, failed = failed, success = success)
-	async with aiofiles.open('broadcast.txt', 'w') as broadcast_log_file:
-	    async for user in all_users:
-	        sts, msg = await send_msg(user_id = int(user['id']), message = broadcast_msg)
-	        if msg is not None:
-	            await broadcast_log_file.write(msg)
-	        if sts == 200:
-	            success += 1
-	        else:
-	            failed += 1
-	        if sts == 400:
-	            await db.delete_user(user['id'])
-	        done += 1
-	        if broadcast_ids.get(broadcast_id) is None:
-	            break
-	        else:
-	            broadcast_ids[broadcast_id].update(dict(current = done, failed = failed, success = success))
-	if broadcast_ids.get(broadcast_id):
-	    broadcast_ids.pop(broadcast_id)
-	completed_in = datetime.timedelta(seconds=int(time.time()-start_time))
-	await asyncio.sleep(3)
-	await out.delete()
-	if failed == 0:
-	    await update.reply_text(text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.", quote=True)
-	else:
-	    await update.reply_document(document='broadcast.txt', caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.")
-	os.remove('broadcast.txt')
+@Client.on_message(filters.private & filters.command("broadcast") & filters.user(Config.BOT_OWNER))
+async def broadcast_dis(_, message: Message):
+    bc_msg = await message.reply("`Processing ⚙️...`")
+    r_msg = message.reply_to_message
+    if not r_msg:
+        return await bc_msg.edit("`Reply to a message to broadcast!`")
+    users_list = await get_users_list()
+    # trying to broadcast
+    await bc_msg.edit("`Broadcasting has started, This may take while 🥱!`")
+    success_no = 0
+    failed_no = 0
+    total_users = await count_users()
+    for user in users_list:
+        b_cast = await _do_broadcast(message=r_msg, user=user["user_id"])
+        if b_cast == 200:
+            success_no += 1
+        else:
+            failed_no += 1
+    await bc_msg.edit(f"""
+**Broadcast Completed ✅!**
+**Total Users:** `{total_users}`
+**Successful Responses:** `{success_no}`
+**Failed Responses:** `{failed_no}`
+    """)
+
