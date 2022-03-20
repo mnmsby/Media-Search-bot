@@ -195,7 +195,8 @@ async def bot_info(bot, message):
         [
             InlineKeyboardButton("🔎 SEARCH HERE 🔍", switch_inline_query_current_chat='')          
         ],[
-            InlineKeyboardButton("Help ⚙️", callback_data="help")
+            InlineKeyboardButton("⚙️ More Help", callback_data="help"),
+            InlineKeyboardButton("How to use ❓", url="https://youtu.be/agLfjSugy54")
         ]
         ]
     await message.reply(text="""<b>For searching files please click button below 👇, or send file name or ID here</b>""", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
