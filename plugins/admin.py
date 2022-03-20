@@ -124,7 +124,7 @@ async def broadcast(bot, update):
 	    broadcast_id = ''.join([random.choice(string.ascii_letters) for i in range(3)])
 	    if not broadcast_ids.get(broadcast_id):
 	        break
-	out = await update.reply_text(text=f"Broadcast Started! You will be notified with log file when all the users are notified.")
+	out = await update.reply_text(text=f"Broadcast Started....!")
 	start_time = time.time()
 	total_users = await db.total_users_count()
 	done = 0
@@ -153,7 +153,7 @@ async def broadcast(bot, update):
 	await asyncio.sleep(3)
 	await out.delete()
 	if failed == 0:
-	    await update.reply_text(text=f"broadcast completed in `{completed_in}`\n\n👩‍💻 Total users {total_users}\n⚡ Total done {done},\n✅ Success{success} \n❎ Failed{failed}", quote=True)
+	    await update.reply_text(text=f"**broadcast completed**\n\n⏱ Completed in : `{completed_in}`\n💻 Total users : {total_users}\n⚡ Total done : {done},\n✅ Success : {success} \n❎ Failed : {failed}", quote=True)
 	else:
-	    await update.reply_document(document='broadcast.txt', caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.")
+	    await update.reply_document(document='broadcast.txt', caption=f"**broadcast completed**\n\n⏱ Completed in : `{completed_in}`\n💻 Total users : {total_users}\n⚡ Total done : {done},\n✅ Success : {success} \n❎ Failed : {failed}")
 	os.remove('broadcast.txt')
